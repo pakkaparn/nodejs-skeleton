@@ -1,0 +1,16 @@
+{% extends 'layout/base.twig' %}
+
+{% set title = 'News - ' ~ news.title %}
+
+{% block content %}
+  <main>
+    <div class="container">
+      <section class="section news">
+        <h2 class="title has-text-centered">{{ news.title }}</h2>
+        <div class="content">
+          {{ news.description }}
+        </div>
+      </section>
+    </div>
+  </main>
+{% endblock %}

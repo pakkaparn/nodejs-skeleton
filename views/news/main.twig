@@ -1,0 +1,32 @@
+{% extends 'layout/base.twig' %}
+
+{% set title = 'News' %}
+
+{% block content %}
+  <main>
+    <div class="container">
+      <section class="section news">
+        <h2 class="title has-text-centered">News</h2>
+        <div class="columns is-multiline">
+          {% for item in news %}
+              <div class="column is-one-third">
+                <a class="card" href="/news/{{ item.id }}">
+                  <div class="card-image">
+                    <figure class="image is-3by2">
+                      <img src="{{ item.image }}" alt="{{ item.title }}">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <h2 class="title">{{ item.title }}</h2>
+                    <p class="content">
+                      {{ item.description }}
+                    </p>
+                  </div>
+                </a>
+              </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </main>
+{% endblock %}

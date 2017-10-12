@@ -1,0 +1,51 @@
+{% extends 'layout/base.twig' %}
+
+{% set title = 'Home' %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+{% endblock %}
+
+{% block javascript %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+  <script src="/assets/home/main.js"></script>
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div class="container">
+      <section class="section banner">
+        <div class="owl-carousel owl-theme">
+          {% for item in banners %}
+              <div class="item">
+                <img src="{{ item.image }}">
+              </div>
+          {% endfor %}
+        </div>
+      </section>
+      <section class="section news">
+        <h2 class="title has-text-centered">News</h2>
+        <div class="columns is-multiline">
+          {% for item in news %}
+              <div class="column is-one-third">
+                <a class="card" href="/news/{{ item.id }}">
+                  <div class="card-image">
+                    <figure class="image is-3by2">
+                      <img src="{{ item.image }}" alt="{{ item.title }}">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <h2 class="title">{{ item.title }}</h2>
+                    <p class="content">
+                      {{ item.description }}
+                    </p>
+                  </div>
+                </a>
+              </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </main>
+{% endblock %}
